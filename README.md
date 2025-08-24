@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Portfolio - CHOMRONG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700;900&display=swap');
+        
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --secondary: #06b6d4;
+            --dark: #020617;
+            --light: #f1f5f9;
+        }
+        
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #020617;
+            color: #cbd5e1;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            z-index: 1000;
+            transition: width 0.2s ease;
+        }
+        
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.7s ease;
+        }
+        
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect rounded-b-xl shadow-lg">
+        <div class="max-w-5xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold gradient-text">CHOMRONG</div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-300 hover:text-violet-400 transition-colors duration-300">អំពីខ្ញុំ</a>
+                    <a href="#projects" class="text-slate-300 hover:text-violet-400 transition-colors duration-300">គម្រោង</a>
+                    <a href="#slogans" class="text-slate-300 hover:text-violet-400 transition-colors duration-300">ពាក្យស្លោក</a>
+                    <a href="#goals" class="text-slate-300 hover:text-violet-400 transition-colors duration-300">គោលដៅ</a>
+                    <a href="#contact" class="text-slate-300 hover:text-violet-400 transition-colors duration-300">ទាក់ទង</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-slate-300">
+                    <i class="fa-solid fa-bars w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden glass-effect rounded-b-xl p-4 mt-2 hidden">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="text-slate-300 hover:text-violet-400 transition-colors duration-300 py-2">អំពីខ្ញុំ</a>
+                <a href="#projects" class="text-slate-300 hover:text-violet-400 transition-colors duration-300 py-2">គម្រោង</a>
+                <a href="#slogans" class="text-slate-300 hover:text-violet-400 transition-colors duration-300 py-2">ពាក្យស្លោក</a>
+                <a href="#goals" class="text-slate-300 hover:text-violet-400 transition-colors duration-300 py-2">គោលដៅ</a>
+                <a href="#contact" class="text-slate-300 hover:text-violet-400 transition-colors duration-300 py-2">ទាក់ទង</a>
+            </div>
+        </div>
+    </nav>
+    <div class="h-16"></div> <!-- Spacer for fixed nav -->
+
+    <!-- Purple Radial Glow Background -->
+    <div class="absolute inset-x-0 top-0 h-[700px] z-0" style="background-image: radial-gradient(circle 800px at 50% 200px, rgba(139, 92, 246, 0.3), transparent);"></div>
+    
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-16">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col items-center text-center mb-20 pt-16">
+            <div class="relative mb-6" style="animation: float 6s ease-in-out infinite;">
+                <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" 
+                    alt="Yat Chomrong" 
+                    class="w-40 h-40 rounded-full object-cover border-4 border-violet-500/50"
+                />
+                <div class="absolute inset-0 rounded-full ring-4 ring-violet-500/70 ring-offset-4 ring-offset-[#020617]"></div>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-violet-300 mb-4">
+                Yat Chomrong
+            </h1>
+            <p class="text-lg text-slate-400 mb-4">អ្នកស្រលាញ់បច្ចេកវិទ្យា | សហគ្រិននាពេលអនាគត</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-5 text-slate-400">
+                <span class="flex items-center"><i class="fa-solid fa-location-dot w-4 h-4 mr-2 text-violet-400"></i> ខេត្ត ព្រះវិហារ, កម្ពុជា</span>
+                <span class="flex items-center"><i class="fa-solid fa-envelope w-4 h-4 mr-2 text-violet-400"></i> chomrong.yat@example.com</span>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex space-x-4 mt-6">
+                <a href="#" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="space-y-16">
+            <!-- About Section -->
+            <section id="about" class="section-hidden py-16">
+                <div class="flex items-center mb-6">
+                    <i class="fa-solid fa-user w-8 h-8 text-violet-400"></i>
+                    <h2 class="ml-4 text-3xl font-bold text-slate-100">អំពីខ្ញុំ</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="text-lg leading-relaxed glass-effect p-6 rounded-xl shadow-lg">
+                        <p class="mb-4">
+                            ខ្ញុំជាសិស្សថ្នាក់ទី១០ អាយុ ១៦ឆ្នាំ ដែលមានចំណង់ចំណូលចិត្តខ្លាំងលើវិស័យវិទ្យាសាស្ត្រ និងបច្ចេកវិទ្យា។ 
+                            ខ្ញុំមកពីគ្រួសារកសិករ និងជាអ្នកសកម្មនយោបាយម្នាក់ ដែលមានក្តីស្រមៃចង់បង្កើតអាជីវកម្ម និងបច្ចេកវិទ្យាថ្មីៗ ដើម្បីចូលរួមអភិវឌ្ឍសង្គម។
+                        </p>
+                        <p>
+                            ក្រៅពីការ�សិក្សា ខ្ញុំចូលចិត្តបង្កើតគម្រោងបច្ចេកវិទ្យា សិក្សាភាសាកម្មវិធី និងរកមើលឱកាសអាជីវកម្មថ្មីៗ។ 
+                            ខ្ញុំមានជំនឿថាបច្ចេកវិទ្យាអាចផ្លាស់ប្តូរជីវិតមនុស្ស និងជួយអភិវឌ្ឍប្រទេសជាតិយើងបាន។
+                        </p>
+                    </div>
+                    
+                    <div class="glass-effect p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold text-slate-100 mb-4">ជំនាញ</h3>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-slate-300">Web Development</span>
+                                <span class="text-slate-400">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-slate-300">UI/UX Design</span>
+                                <span class="text-slate-400">75%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-slate-300">Telegram Bots</span>
+                                <span class="text-slate-400">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section-hidden py-16">
+                <div class="flex items-center mb-6">
+                    <i class="fa-solid fa-briefcase w-8 h-8 text-violet-400"></i>
+                    <h2 class="ml-4 text-3xl font-bold text-slate-100">គម្រោង</h2>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-violet-300 mb-4">គម្រោងអាជីវកម្ម</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-effect rounded-xl p-6 hover:border-violet-500/50 border border-slate-800 transition-all duration-300 hover:-translate-y-1">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">YT SHOP</h3>
+                                <p class="text-slate-400 mb-4">គម្រោងលក់ស្បែកជើងទូទាំងប្រទេស។</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">E-commerce</span>
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">Business</span>
+                                </div>
+                                <a href="#" class="text-violet-400 hover:text-violet-300 flex items-center">
+                                    View Project <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="glass-effect rounded-xl p-6 hover:border-violet-500/50 border border-slate-800 transition-all duration-300 hover:-translate-y-1">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">FF DIAMOND.Shop</h3>
+                                <p class="text-slate-400 mb-4">គេហទំព័រលក់ Diamond សម្រាប់ហ្គេម។</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">Gaming</span>
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">E-commerce</span>
+                                </div>
+                                <a href="#" class="text-violet-400 hover:text-violet-300 flex items-center">
+                                    View Project <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-violet-300 mb-4">គម្រោងបច្ចេកវិទ្យា</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-effect rounded-xl p-6 hover:border-violet-500/50 border border-slate-800 transition-all duration-300 hover:-translate-y-1">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">Telegram Bots</h3>
+                                <p class="text-slate-400 mb-4">បង្កើត Bots ដូចជា NBOTN_BOT និង @catcoinbtc_BOT។</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">Bot</span>
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">Automation</span>
+                                </div>
+                                <a href="#" class="text-violet-400 hover:text-violet-300 flex items-center">
+                                    View Project <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="glass-effect rounded-xl p-6 hover:border-violet-500/50 border border-slate-800 transition-all duration-300 hover:-translate-y-1">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">Android Control AI</h3>
+                                <p class="text-slate-400 mb-4">គម្រោង AI Bot គ្រប់គ្រងទូរសព្ទ Android តាម Telegram។</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">AI</span>
+                                    <span class="px-3 py-1 bg-violet-900/30 text-violet-300 rounded-full text-sm">Mobile</span>
+                                </div>
+                                <a href="#" class="text-violet-400 hover:text-violet-300 flex items-center">
+                                    View Project <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Slogans Section -->
+            <section id="slogans" class="section-hidden py-16">
+                <div class="flex items-center mb-6">
+                    <i class="fa-solid fa-quote-left w-8 h-8 text-violet-400"></i>
+                    <h2 class="ml-4 text-3xl font-bold text-slate-100">ពាក្យស្លោកអប់រំ</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start glass-effect p-4 rounded-xl transition-all duration-300 hover:border-violet-500/50 border border-slate-800">
+                        <span class="text-3xl mr-4">🌱</span>
+                        <p class="text-slate-300 italic">"កំណើតកសិករ មិនមែនជាអន្តរាយ តែជាកម្លាំងបើកផ្លូវឲ្យយើងរឹងមាំ។"</p>
+                    </div>
+                    <div class="flex items-start glass-effect p-4 rounded-xl transition-all duration-300 hover:border-violet-500/50 border border-slate-800">
+                        <span class="text-3xl mr-4">📚</span>
+                        <p class="text-slate-300 italic">"ការ�សិក្សាជាគន្លឹះបើកទ្វារអនាគត — អ្នកណាដែលព្យាយាម មិនដែលបរាជ័យ។"</p>
+                    </div>
+                    <div class="flex items-start glass-effect p-4 rounded-xl transition-all duration-300 hover:border-violet-500/50 border border-slate-800">
+                        <span class="text-3xl mr-4">🔥</span>
+                        <p class="text-slate-300 italic">"ក្មេងស្រុកអាចក្លាយជាអ្នកដឹកនាំជាតិ ប្រសិនបើមានសេចក្តីស្រមៃ និងការ�តស៊ូ។"</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Life Goals Section -->
+            <section id="goals" class="section-hidden py-16">
+                <div class="flex items-center mb-6">
+                    <i class="fa-solid fa-bullseye w-8 h-8 text-violet-400"></i>
+                    <h2 class="ml-4 text-3xl font-bold text-slate-100">គោលដៅជីវិត</h2>
+                </div>
+                <div class="glass-effect p-6 rounded-xl shadow-lg space-y-3">
+                    <p class="flex items-center"><i class="fa-solid fa-lightbulb w-5 h-5 mr-3 text-amber-400"></i> ក្លាយជាអ្នកជំនួញ និងអ្នកដឹកនាំ (CEO) ដ៏ជោគជ័យ។</p>
+                    <p class="flex items-center"><i class="fa-solid fa-lightbulb w-5 h-5 mr-3 text-amber-400"></i> សិក្សាជំនាញ Cybersecurity & IT ឲ្យបានជ្រៅជ្រះ។</p>
+                    <p class="flex items-center"><i class="fa-solid fa-lightbulb w-5 h-5 mr-3 text-amber-400"></i> ក្លាយជាមនុស្សដែលមានឥទ្ធិពលក្នុងវិស័យបច្ចេកវិទ្យា និងសង្គម។</p>
+                    <div class="!mt-5 pt-4 border-t border-slate-800">
+                        <p class="flex items-center text-lg font-bold text-violet-300">
+                            <i class="fa-solid fa-rocket w-6 h-6 mr-3"></i>
+                            <span>សម្រេចគោលដៅទ្រព្យសរុប $200 លាន ដុល្លារ នៅឆ្នាំ 2030</span>
+                        </p>
+                        <div class="w-full bg-slate-800 rounded-full h-2.5 mt-4">
+                            <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 h-2.5 rounded-full" style="width: 15%"></div>
+                        </div>
+                        <p class="text-right text-sm text-slate-400 mt-2">15% Progress</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section id="contact" class="section-hidden py-16">
+                <div class="flex items-center mb-6">
+                    <i class="fa-solid fa-envelope w-8 h-8 text-violet-400"></i>
+                    <h2 class="ml-4 text-3xl font-bold text-slate-100">ទាក់ទង</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-100 mb-4">ព័ត៌មានទាក់ទង</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-violet-900/30 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-envelope w-5 h-5 text-violet-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-slate-400">អ៊ីមែល</p>
+                                        <p class="text-slate-200">chomrong.yat@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-violet-900/30 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-location-dot w-5 h-5 text-violet-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-slate-400">ទីតាំង</p>
+                                        <p class="text-slate-200">ខេត្ត ព្រះវិហារ, កម្ពុជា</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-100 mb-4">បណ្តាញសង្គម</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300" title="github">
+                                    <i class="fa-brands fa-github w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300" title="twitter">
+                                    <i class="fa-brands fa-twitter w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300" title="facebook">
+                                    <i class="fa-brands fa-facebook w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full glass-effect flex items-center justify-center text-slate-300 hover:text-violet-400 hover:border-violet-400/50 border border-slate-800 transition-all duration-300" title="linkedin">
+                                    <i class="fa-brands fa-linkedin w-6 h-6"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-4">ផ្ញើសារ</h3>
+                        <form class="glass-effect rounded-xl p-6">
+                            <div class="mb-4">
+                                <label for="name" class="block text-slate-300 mb-2">ឈ្មោះ</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-slate-300 mb-2">អ៊ីមែល</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-slate-300 mb-2">សារ</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="4"
+                                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-medium py-2 px-6 rounded-lg hover:from-violet-700 hover:to-fuchsia-700 transition-all duration-300"
+                            >
+                                ផ្ញើសារ
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-20 pt-8 border-t border-slate-800">
+            <p class="text-slate-500">&copy; <span id="current-year"></span> Yat Chomrong. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Progress bar scroll effect
+        window.addEventListener('scroll', updateProgressBar);
+        window.addEventListener('resize', updateProgressBar);
+        
+        function updateProgressBar() {
+            const progressBar = document.querySelector('.progress-bar');
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = progress + "%";
+        }
+        
+        // Section animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-hidden').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
